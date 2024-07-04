@@ -1,0 +1,170 @@
+{
+  "id": {"S": "1"},
+  "name": {"S": "Harshal Jethwa"},
+  "label": {"S": "DevOps/SRE"},
+  "image": {"S": ""},
+  "email": {"S": "harshaljethwa19@gmail.com"},
+  "phone": {"S": "(+91) 8849415425"},
+  "location": {
+    "M": {
+      "city": {"S": "Surat"},
+      "countryCode": {"S": "India"},
+      "region": {"S": "Gujarat"}
+    }
+  },
+  "profiles": {"L": [
+    {"M": {
+      "network": {"S": "Twitter"},
+      "username": {"S": "harshaljethwaa"},
+      "url": {"S": "https://twitter.com/harshaljethwaa"}
+    }},
+{"M": {
+      "network": {"S": "Linkedin"},
+      "username": {"S": "harshaljethwa"},
+      "url": {"S": "https://linkedin.com/in/harshaljethwa"}
+    }}
+
+  ]},
+  "work": {"L": [
+    {"M": {
+    "name": {"S": "Crest Data"},
+    "position": {"S": "Site Reliabality Enginner"},
+    "startDate": {"S": "2023-11"},
+    "endDate": {"S": "Present"},
+    "summary": {"S": "Automated the subscription process using AWS services like CloudFormation, AWS STS, Route 53, Lambda, API Gateway, S3 Bucket, and DynamoDB to facilitate seamless customer registration with AWS Marketplace, Developed Jenkins CI/CD pipelines for continuous integration and deployment, Implemented Terraform and Ansible for infrastructure management and Orchestrated Kubernetes clusters from scratch"}
+  }},
+  {"M": {
+    "name": {"S": "WeeTech Solution"},
+    "position": {"S": "DevOps Intern"},
+    "startDate": {"S": "2023-05"},
+    "endDate": {"S": "2023-06"},
+    "summary": {"S": "Learn about different DevOps tools like GitHub, Jenkins, Docker and AWS, Developed and Deployed a MEAN stack Website using Jenkins CI/CD Pipeline"}
+  }},
+  {"M": {
+    "name": {"S": "Bhaskaracharya Institute for Space Applications and Geoinformatics"},
+    "position": {"S": "Cloud Intern"},
+    "startDate": {"S": "2022-05"},
+    "endDate": {"S": "2022-07"},
+    "summary": {"S": "Learn about different Cloud Platforms, Deployed a Static and Dynamic and deployed it in AWS EC2 and AWS S3"}
+  }}
+  ]},
+  "education": {"L": [ {"M": {
+    "institution": {"S": "Charotar University Of Science and Technology"},
+    "area": {"S": "Information Technology"},
+    "studyType": {"S": "Bachelor"},
+    "startDate": {"S": "2021"},
+    "endDate": {"S": "2024"},
+    "score": {"S": "8.65"}
+  }},
+  {"M": {
+    "institution": {"S": "Uka Tarsadia Of Science and Technology"},
+    "area": {"S": "Computer Engineering"},
+    "studyType": {"S": "Diploma"},
+    "startDate": {"S": "2018"},
+    "endDate": {"S": "2021"},
+    "score": {"S": "8.85"}
+  }}
+
+  ]},
+  "certificates": {"L": [ {"M": {
+    "title": {"S": "AWS Cloud Practitiner "},
+    "date": {"S": "2023"}
+  }},
+  {"M": {
+    "title": {"S": "Microsoft Certified: Azure Fundamentals "},
+    "date": {"S": "2023"}
+  }},
+  {"M": {
+    "title": {"S": "Oracle Cloud Infrastructure Foundations Associate "},
+    "date": {"S": "2021"}
+  }}
+  ]},
+  "skills": {"L": [
+    {"M": {
+      "name": {"S": "AWS"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "Azure"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "Docker"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "Terraform"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "Ansible"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "SaltStack"},
+      "level": {"S": "Beginer"}
+    }},
+    {"M": {
+      "name": {"S": "Python"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "JavaScript"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "Kubernetes"},
+      "level": {"S": "Beginner"}
+    }},
+    {"M": {
+      "name": {"S": "Jenkins"},
+      "level": {"S": "Intermediate"}
+    }},
+    {"M": {
+      "name": {"S": "Linux"},
+      "level": {"S": "Intermediate"}
+    }}
+  ]},
+  "languages": {"L": [
+    {"M": {
+      "language": {"S": "English"},
+      "fluency": {"S": "Native"}
+    }},
+    {"M": {
+      "language": {"S": "Hindi"},
+      "fluency": {"S": "Native"}
+    }},
+    {"M": {
+      "language": {"S": "Gujarati"},
+      "fluency": {"S": "Native"}
+    }}
+  ]},
+  "interests": {"L": [
+    {"M": {
+      "name": {"S": "Cricket"}
+    }}
+  ]},
+  "projects": {"L": [
+    {"M": {
+      "name": {"S": "Automated VM Provision with HA Load balancer"},
+      "description": {"S": "Developed a website where users can get their desired OS with config On-demand with HA load balancer"}
+    }},
+    {"M": {
+      "name": {"S": "3-tier architecture AWS Web Architecture"},
+      "description": {"S": "Created a 3-tier Architecture High Available, Fault Tolerant, and Secure AWS Web Architecture using Terraform"}
+    }},
+    {"M": {
+      "name": {"S": "Real Time Cloud Monitoring Python App using AWS and Python"},
+      "description": {"S": "Designed and developed Cloud Monitoring Python App using AWS ECR"}
+    }}
+  ]},
+  "Achievement": {"M": {
+    "organization": {"S": "Winner of The 2022 Solution Challenge using the Information Technology department in collaboration with the Student Startup and Innovation Policy (SSIP) Cell"}
+  }},
+  "volunteer": {"M": {
+    "organization": {"S": "Organization"},
+    "position": {"S": "Core Team"},
+    "startDate": {"S": "2023-07"},
+    "endDate": {"S": "Present"}
+  }}
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshal Jethwa's Resume</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      /* text-align: center; */
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #0073e6;
+    }
+    .header p {
+      font-size: 1.2em;
+      margin: 5px 0;
+      text-align: left; /* Align text to the left */
+    }
+    .profile-links {
+      margin-top: 10px;
+    }
+    .profile-links a {
+      display: block; /* Ensures each link is on a new line */
+      margin-bottom: 5px; /* Adds space between links */
+      text-decoration: none;
+      color: #0073e6;
+    }
+    .profile-links a:hover {
+      text-decoration: underline;
+    }
+    .profile-links img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      /* vertical-align: middle; */
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #0073e6;
+      padding-bottom: 5px;
+      color: #0073e6;
+      font-size: 1.8em;
+    }
+    .section p, .section ul, .section div {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .skills, .languages, .interests, .projects, .certificates {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .skills li, .languages li, .interests li, .projects li, .certificates li {
+      flex: 1 1 45%;
+      margin-bottom: 10px;
+    }
+    /* Added new style for email and phone alignment */
+    /* .contact-info {
+      text-align: left;
+    }
+    .email {
+      text-align: right;
+    } */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 id="name">Loading...</h1>
+      <b><p id="label"> </p> </b>
+      <p id="location"></p>
+      <div class="profile-links" id="profiles"></div>
+      <!-- Adjusted structure for contact info -->
+      <div class="contact-info">
+        <p style="text-align: left;" class="email header">Email: <span id="email"></span></p>
+        <p>Phone: <span id="phone"></span></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Work Experience</h2>
+      <div id="work-experience"></div>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <div id="education"></div>
+    </div>
+
+    <div class="section">
+      <h2>Skills</h2>
+      <ul id="skills"></ul>
+    </div>
+
+    <div class="section">
+      <h2>Projects</h2>
+      <ul id="projects"></ul>
+    </div>
+
+    <div class="section">
+      <h2>Languages</h2>
+      <ul id="languages"></ul>
+    </div>  
+
+    <div class="section">
+      <h2>Certificates</h2>
+      <ul id="certificates"></ul>
+    </div>
+
+    <div class="section">
+      <h2>Achievements</h2>
+      <div id="achievements"></div>
+    </div>
+
+    <div class="section">
+      <h2>Interests</h2>
+      <ul id="interests"></ul>
+    </div>
+
+    <div class="section">
+      <h2>Volunteer Work</h2>
+      <div id="volunteer"></div>
+    </div>
+  </div>
+
+  <script>
+    const apiUrl = 'https://9pgp91j1w7.execute-api.us-east-1.amazonaws.com/prod/resume';
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        console.log('API Response:', data);
+
+        const resumeData = data;
+        console.log('Resume Data:', resumeData);
+
+        if (resumeData.name) document.getElementById('name').innerText = resumeData.name;
+        if (resumeData.label) document.getElementById('label').innerText = resumeData.label;
+        if (resumeData.location) {
+          const location = resumeData.location;
+          document.getElementById('location').innerText = `${location.city ?? ''}, ${location.region ?? ''}, ${location.countryCode ?? ''}`;
+        }
+        if (resumeData.email) document.getElementById('email').innerText = resumeData.email;
+        if (resumeData.phone) document.getElementById('phone').innerText = resumeData.phone;
+
+        const profilesContainer = document.getElementById('profiles');
+        if (resumeData.profiles) {
+          resumeData.profiles.forEach(profile => {
+            if (profile.url && profile.network) {
+              const a = document.createElement('a');
+              a.href = profile.url;
+              a.target = '_blank';
+              a.innerText = profile.network;
+              profilesContainer.appendChild(a);
+            }
+          });
+        }
+
+        const workExperienceContainer = document.getElementById('work-experience');
+        if (resumeData.work) {
+          resumeData.work.forEach(job => {
+            const { name, position, startDate, endDate, summary } = job;
+            const div = document.createElement('div');
+            div.innerHTML = `<p><strong>${position ?? ''} at ${name ?? ''}</strong> (${startDate ?? ''} - ${endDate ?? ''})<br>${summary ?? ''}</p>`;
+            workExperienceContainer.appendChild(div);
+          });
+        }
+
+        const educationContainer = document.getElementById('education');
+        if (resumeData.education) {
+          resumeData.education.forEach(edu => {
+            const { institution, area, studyType, startDate, endDate, score } = edu;
+            const div = document.createElement('div');
+            div.innerHTML = `<p><strong>${institution ?? ''}</strong> - ${area ?? ''} (${studyType ?? ''}) ${startDate ?? ''} - ${endDate ?? ''}, Score: ${score ?? ''}</p>`;
+            educationContainer.appendChild(div);
+          });
+        }
+
+        const skillsContainer = document.getElementById('skills');
+        if (resumeData.skills) {
+          resumeData.skills.forEach(skill => {
+            const li = document.createElement('li');
+            li.innerText = `${skill.name ?? ''} (${skill.level ?? ''})`;
+            skillsContainer.appendChild(li);
+          });
+        }
+
+        const languagesContainer = document.getElementById('languages');
+        if (resumeData.languages) {
+          resumeData.languages.forEach(lang => {
+            const li = document.createElement('li');
+            li.innerText = `${lang.language ?? ''} (${lang.fluency ?? ''})`;
+            languagesContainer.appendChild(li);
+          });
+        }
+
+        const interestsContainer = document.getElementById('interests');
+        if (resumeData.interests) {
+          resumeData.interests.forEach(interest => {
+            const li = document.createElement('li');
+            li.innerText = interest.name ?? '';
+            interestsContainer.appendChild(li);
+          });
+        }
+
+        const projectsContainer = document.getElementById('projects');
+        if (resumeData.projects) {
+          resumeData.projects.forEach(project => {
+            const li = document.createElement('li');
+            li.innerText = `${project.name ?? ''} - ${project.description ?? ''}`;
+            projectsContainer.appendChild(li);
+          });
+        }
+
+        const certificatesContainer = document.getElementById('certificates');
+        if (resumeData.certificates) {
+          resumeData.certificates.forEach(cert => {
+            const li = document.createElement('li');
+            li.innerText = `${cert.title ?? ''} (${cert.date ?? ''})`;
+            certificatesContainer.appendChild(li);
+          });
+        }
+
+        if (resumeData.Achievement && resumeData.Achievement.organization) {
+          document.getElementById('achievements').innerText = resumeData.Achievement.organization;
+        }
+
+        if (resumeData.volunteer) {
+          const volunteer = resumeData.volunteer;
+          const volunteerContainer = document.getElementById('volunteer');
+          volunteerContainer.innerHTML = `<strong>${volunteer.organization ?? ''}</strong> - ${volunteer.position ?? ''} (${volunteer.startDate ?? ''} - ${volunteer.endDate ?? ''})`;
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        document.getElementById('name').innerText = 'Error loading resume data';
+      });
+  </script>
+</body>
+</html>
